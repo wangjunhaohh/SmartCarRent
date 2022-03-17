@@ -1,0 +1,138 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+
+        <fieldset class="table-search-fieldset">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px;">
+                <div class="layui-inline">
+                    <!--搜索框，应用了layui中的样式，记住id值，后面会使用-->
+                    <input class="layui-input" name="keyId" id="keyId" autocomplete="off" placeholder="请输入待搜索的商品编号">
+                </div>
+                <button class="layui-btn"><i class="layui-icon"></i>搜索</button>
+            </div>
+
+        </fieldset>
+        <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+                <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+            </div>
+
+        </script>
+        <script type="text/html" id="img"><!--图片模板-->
+        <img src="images/{{d.photo}}" style="width: 48px;border:1px solid #cccccc;padding: 1px;" />
+        </script>
+        <table class="layui-hide" id="tbCarsinfo" lay-filter="tbCarsinfo" ></table><!--设置要装载数据的表格，注意需要设置id-->
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">租用</a>
+<!--        <script type="text/html" id="toolbarDemo">-->
+<!--            <div class="layui-btn-container">-->
+<!--                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>-->
+<!--                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete"> 删除 </button>-->
+<!--            </div>-->
+        </script>
+
+<!--        <table class="layui-hide" id="currentTableId" lay-filter="currentTableFilter"></table>-->
+
+<!--        <script type="text/html" id="currentTableBar">-->
+<!--            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>-->
+<!--            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>-->
+<!--        </script>-->
+
+    </div>
+</div>
+<script>
+    function url(){
+        var  str = window.location.href;
+        str1 = str.split("?")[1];
+        str2 = str1.split("=")[1];
+        str3 = str2.split("#")[0];
+        return str
+    }
+    layui.use('table', function(){
+        var table = layui.table,
+            $ = layui.jquery;
+        table.render({//执行渲染
+            elem: '#tbCarsinfo',//指定原始表格元素选择器（推荐id选择器）
+            id: 'stuinfo',
+            url: 'allVehicle', //数据接口，为json格式
+            height: 'full-100',//设置表格高度，离浏览器窗口上下各100px
+            toolbar: '#toolbarDemo', //开启头部工具栏，并为其绑定左侧模板
+            cols: [[ //设置表头
+                {type: "checkbox", width: 40},
+                {field: 'id', title: '编号',align:'center',sort: true},
+                {field: 'number', title: '车牌号',align:'center'},
+                {field: 'brand', title: '品牌',align:'center'},
+                {field: 'color', title: '颜色',align:'center'},
+                {field: 'price', title: '价格',align:'center'},
+                {fixed: 'right', title:'操作', toolbar: '#barDemo'}
+            ]],
+
+
+            limits: [5,10, 15, 20, 25, 50, 100],
+            limit: 10,
+            page: true,
+            parseData: function(res) {
+                var result;
+                if (this.page.curr) {
+                    result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
+                } else {
+                    result = res.data.slice(0, this.limit);
+                }
+                return {
+                    "code": res.code,
+                    "msg": res.msg,
+                    "count": res.count,
+                    "data": result
+                }
+            }
+        });
+        //头工具栏事件
+        table.on('toolbar(tbCarsinfo)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    break;
+                case 'LAYTABLE_TIPS':
+                    layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                    break;
+            };
+        });
+        table.on('tool(tbCarsinfo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'edit'){
+                var index = layer.open({
+                    title: '租赁',
+                    type: 2,
+                    shade: 0.2,
+                    // maxmin:true,
+                    shadeClose: true,
+                    area: ['70%', '70%'],
+                    offset: ['5%', '5%'],
+                    content: 'rent.jsp?id=' + data.id,
+                    end: function () {
+                        location.reload();
+                    }
+                });
+            }
+        });
+        // 监听搜索操作
+        $('.layui-btn').click(function () {
+            var inputVal = $('#keyId').val()
+            table.reload('stuinfo', {
+                where: {
+                    id : inputVal
+                }
+                ,page: {
+                    curr: 1
+                }
+            });
+        })
+
+    });
+</script>

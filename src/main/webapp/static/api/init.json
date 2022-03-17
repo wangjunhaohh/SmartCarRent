@@ -1,0 +1,41 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "welcome1.jsp"
+  },
+  "logoInfo": {
+    "title": "智能汽车管理",
+    "image": "../images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "主页",
+          "href": "welcome1.jsp",
+          "icon": "fa fa-tachometer",
+          "target": "_self"
+        },
+
+        {
+          "title": "租用",
+          "href": "table.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "归还",
+          "href": "back.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        }
+      ]
+    }
+
+  ]
+}
