@@ -131,10 +131,15 @@
                 dataType: "json",
                 success(data){
                     if(data == "1"){
-                        layer.msg('租用成功', {icon: 5, time: 1000}, function () {
+                        layer.msg('租用成功', {icon: 1, time: 1000}, function () {
                             var index = parent.layer.getFrameIndex(window.name);
                             parent.layer.close(index);
                         });
+                    }else if(data =="0"){
+                        layer.msg('超出租用上限',{icon:5,time:1000},function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                        })
                     }
                 }
             });

@@ -22,6 +22,7 @@ public class LoginController {
         List<Users> usersList = loginService.userList();
         for(Users ul:usersList){
             if(ul.getNickname().equals(users.getNickname())&&ul.getPassword().equals(users.getPassword())){
+                session.setAttribute("userId",ul.getId());
                 session.setAttribute("nickname",users.getNickname());
                 System.out.println("success");
                 return "welcome";

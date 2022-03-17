@@ -69,7 +69,7 @@
                                                         <h5>登陆人数统计</h5>
                                                     </div>
                                                     <div class="panel-content">
-                                                        <h1 class="no-margins"><%out.print(session.getAttribute("count1"));%></h1>
+                                                        <h1 class="no-margins"><%out.print(session.getAttributeNames().hasMoreElements());%></h1>
                                                         <small>当前分类总记录数</small>
                                                     </div>
                                                 </div>

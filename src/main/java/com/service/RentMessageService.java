@@ -23,4 +23,14 @@ public class RentMessageService implements RentMessageDao {
     public Integer rowmsg() {
         return dao.rowmsg();
     }
+
+    @Override
+    public int addMsg(Integer userId, Integer carId) {
+        return dao.addMsg(userId, carId);
+    }
+
+    @Override
+    public int limitcounts(Integer id) {
+        return dao.limitcounts(id);
+    }
 }

@@ -57,7 +57,7 @@
                 <li class="layui-nav-item layuimini-setting">
                     <a href="javascript:;">
                         <%
-                            out.print(session.getAttribute("username"));
+                            out.print(session.getAttribute("nickname"));
                         %>
                     </a>
                     <dl class="layui-nav-child">
