@@ -125,12 +125,17 @@
 <script src="static/js/jquery.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
+    $(window).keydown(function (event) {
+        if(event.keyCode ==13){
+            login();
+        }
+    })
     function login(){
         $.ajax({
-            type: "post",//提交类
-            url: "login",//提交给谁处理
-            data: $("#form").serialize(),//获取表单中组件的输入值
-            success: function (result) {//提交成功
+            type: "post",
+            url: "login",
+            data: $("#form").serialize(),
+            success: function (result) {
                 if(result==="0"){
                     alert("密码错误")
                 }else {

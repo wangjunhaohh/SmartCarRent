@@ -62,7 +62,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="javascript:;" class="login-out">退出登录</a>
+                            <a href="javascript:;" class="login-out" onclick="loginout()">退出登录</a>
                         </dd>
                     </dl>
                 </li>
@@ -99,6 +99,14 @@
 </div>
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script>
+    function loginout() {
+        $.ajax({
+            type : "post",
+            url : "loginout"
+        })
+    }
+</script>
 <script>
     layui.use(['jquery', 'layer', 'miniAdmin', 'miniTongji'], function () {
         var $ = layui.jquery,

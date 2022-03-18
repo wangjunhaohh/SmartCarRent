@@ -47,4 +47,10 @@ public class LoginController {
         }
         return "1";
     }
+
+    @RequestMapping(value = "/static/html/loginout")
+    @ResponseBody
+    public void loginout(HttpSession session){
+        session.invalidate();
+    }
 }
