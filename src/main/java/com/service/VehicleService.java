@@ -15,8 +15,8 @@ public class VehicleService implements VehicleDao{
 
 
     @Override
-    public List<Vehicle> allVehcle() {
-        return dao.allVehcle();
+    public List<Vehicle> allVehcle(String brand,String color) {
+        return dao.allVehcle(brand, color);
     }
 
     @Override

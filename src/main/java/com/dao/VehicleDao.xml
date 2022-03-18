@@ -15,7 +15,13 @@
     </select>
 
     <select id="allVehcle" resultType="com.bean.Vehicle">
-        select <include refid="col"/> from vehicle where status="空闲"
+        select <include refid="col"/> from vehicle where status="空闲" 
+        <if test="brand!=null">
+            and brand=#{brand}
+        </if>
+        <if test="color!=null">
+            and color=#{color}
+        </if>
     </select>
     <select id="oneVehcle" resultType="com.bean.Vehicle">
         select <include refid="col"/> from vehicle where id = #{id}

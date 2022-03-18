@@ -5,8 +5,10 @@
             <legend>搜索信息</legend>
             <div style="margin: 10px;">
                 <div class="layui-inline">
-                    <!--搜索框，应用了layui中的样式，记住id值，后面会使用-->
-                    <input class="layui-input" name="keyId" id="keyId" autocomplete="off" placeholder="请输入待搜索的商品编号">
+                    <input class="layui-input" name="keybrand" id="keybrand" autocomplete="off" placeholder="品牌">
+                </div>
+                <div class="layui-inline">
+                    <input class="layui-input" name="keycolor" id="keycolor" autocomplete="off" placeholder="车辆颜色">
                 </div>
                 <button class="layui-btn"><i class="layui-icon"></i>搜索</button>
             </div>
@@ -123,10 +125,12 @@
         });
         // 监听搜索操作
         $('.layui-btn').click(function () {
-            var inputVal = $('#keyId').val()
+            var inputVal = $('#keybrand').val()
+            var inputVal2 = $('#keycolor').val()
             table.reload('stuinfo', {
                 where: {
-                    id : inputVal
+                    brand : inputVal,
+                    color : inputVal2
                 }
                 ,page: {
                     curr: 1
