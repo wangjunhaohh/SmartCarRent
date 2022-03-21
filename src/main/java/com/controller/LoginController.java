@@ -2,6 +2,7 @@ package com.controller;
 
 import com.bean.Users;
 import com.service.LoginService;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,4 +54,11 @@ public class LoginController {
     public void loginout(HttpSession session){
         session.invalidate();
     }
+
+
+//    @RequestMapping(value = "/redis")
+//    @ResponseBody
+//    public void login1(){
+//        RedisUtil.get();
+//    }
 }

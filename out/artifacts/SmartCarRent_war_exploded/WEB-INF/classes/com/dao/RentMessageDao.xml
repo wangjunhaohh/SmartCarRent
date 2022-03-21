@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.RentMessageDao">
+    <insert id="addMsg">
+        insert  into rentmessage (userId,carId) values (#{userId},#{carId})
+    </insert>
+    <select id="rentMsg" resultType="com.bean.RentMessage">
+        select users.nickname,users.`name`,users.tel,vehicle.number,vehicle.brand,vehicle.price,vehicle.`status`
+        from rentmessage LEFT JOIN users on rentmessage.userId = users.id
+        LEFT JOIN vehicle ON vehicle.id = rentmessage.carId
+        <where>
+            <if test="id != null">
+                and users.nickname = #{nickname}
+            </if>
+        </where>
+    </select>
+    <select id="rowmsg" resultType="java.lang.Integer">
+        select count(id) from rentmessage
+    </select>
+    <select id="limitcounts" resultType="java.lang.Integer">
+        select count(userId) from rentmessage where userId=#{userId}
+    </select>
+
+<!--    SELECT  vehicle.brand,count(vehicle.brand) as '数量'-->
+<!--    FROM rentmessage LEFT JOIN vehicle ON vehicle.id = rentmessage.carId-->
+<!--    GROUP BY vehicle.brand-->
+<!--    ORDER BY count(vehicle.brand) desc-->
+
+</mapper>

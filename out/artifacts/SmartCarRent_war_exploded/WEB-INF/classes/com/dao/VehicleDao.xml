@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.VehicleDao">
+    <sql id="col">
+        id,number,brand,price,color,status
+    </sql>
+    <update id="rentVehcle">
+        update vehicle set status = "已租用" where id = #{id}
+    </update>
+
+    <select id="rowCar" resultType="java.lang.Integer">
+        select count(id) from vehicle
+    </select>
+
+    <select id="allVehcle" resultType="com.bean.Vehicle">
+        select <include refid="col"/> from vehicle where status="空闲" 
+        <if test="brand!=null">
+            and brand=#{brand}
+        </if>
+        <if test="color!=null">
+            and color=#{color}
+        </if>
+    </select>
+    <select id="oneVehcle" resultType="com.bean.Vehicle">
+        select <include refid="col"/> from vehicle where id = #{id}
+    </select>
+</mapper>
