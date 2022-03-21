@@ -9,22 +9,37 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class LoginController {
 
     @Resource
     private LoginService loginService;
+    @Resource
+    private RedisTemplate redisTemplate;
 
     @RequestMapping(value = "/login")
     @ResponseBody
     public String login(HttpSession session, Users users){
-        List<Users> usersList = loginService.userList();
-        for(Users ul:usersList){
-            if(ul.getNickname().equals(users.getNickname())&&ul.getPassword().equals(users.getPassword())){
-                session.setAttribute("userId",ul.getId());
-                session.setAttribute("nickname",users.getNickname());
+        List<Users> list;
+        if (redisTemplate.opsForHash().hasKey("people",users.getNickname())){
+            list = redisTemplate.opsForHash().values("people");
+        }else {
+            list = loginService.userList();
+            Map<String,Users> usersMap = new HashMap<>();
+            for(Users l:list){
+                usersMap.put(l.getNickname(),l);
+            }
+            redisTemplate.opsForHash().putAll("people",usersMap);
+            System.out.println("===============更新redis完成================");
+        }
+        for(Users l:list){
+            if(users.getNickname().equals(l.getNickname())&&users.getPassword().equals(l.getPassword())){
+                session.setAttribute("userId",l.getId());
+                session.setAttribute("nickname",l.getNickname());
                 System.out.println("success");
                 return "welcome";
             }
@@ -56,9 +71,4 @@ public class LoginController {
     }
 
 
-//    @RequestMapping(value = "/redis")
-//    @ResponseBody
-//    public void login1(){
-//        RedisUtil.get();
-//    }
 }
