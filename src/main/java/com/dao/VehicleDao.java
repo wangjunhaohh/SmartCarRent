@@ -10,4 +10,5 @@ public interface VehicleDao {
     Integer rowCar();
     Vehicle oneVehcle(Integer id);
     void rentVehcle(Integer id);
+    void backVehcle(String number);
 }

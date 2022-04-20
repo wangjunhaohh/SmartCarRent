@@ -7,7 +7,10 @@
         id,number,brand,price,color,status
     </sql>
     <update id="rentVehcle">
-        update vehicle set status = "已租用" where id = #{id}
+        update vehicle set status = "租用中" where id = #{id}
+    </update>
+    <update id="backVehcle">
+        update vehicle set status = "空闲" where number = #{number}
     </update>
 
     <select id="rowCar" resultType="java.lang.Integer">

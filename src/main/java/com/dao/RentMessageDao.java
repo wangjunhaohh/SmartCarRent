@@ -11,4 +11,5 @@ public interface RentMessageDao {
     Integer rowmsg();
     int addMsg(@Param(value = "userId") Integer userId,@Param(value = "carId") Integer carId);
     int limitcounts(Integer id);
+    int back(Integer userId);
 }

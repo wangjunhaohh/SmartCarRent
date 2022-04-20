@@ -45,9 +45,10 @@ public class VehicleController {
     @RequestMapping(value = "/rentResult")
     @ResponseBody
     public String rent(Integer id, HttpSession session){
+        System.out.println(session.getAttribute("userId"));
         Integer userId = Integer.valueOf(String.valueOf(session.getAttribute("userId")));
         Integer count = rentMessageService.limitcounts(userId);
-        if(count<=1){
+        if(count<1){
             vehicleService.rentVehcle(id);
             rentMessageService.addMsg(userId,id);
             return "1";

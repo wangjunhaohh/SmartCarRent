@@ -6,8 +6,11 @@
     <insert id="addMsg">
         insert  into rentmessage (userId,carId) values (#{userId},#{carId})
     </insert>
+    <delete id="back">
+         delete from rentmessage where userId = #{userId}
+    </delete>
     <select id="rentMsg" resultType="com.bean.RentMessage">
-        select users.nickname,users.`name`,users.tel,vehicle.number,vehicle.brand,vehicle.price,vehicle.`status`
+        select vehicle.number,vehicle.brand,vehicle.price,vehicle.`status`
         from rentmessage LEFT JOIN users on rentmessage.userId = users.id
         LEFT JOIN vehicle ON vehicle.id = rentmessage.carId
         <where>

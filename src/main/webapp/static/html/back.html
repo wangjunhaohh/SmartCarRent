@@ -28,10 +28,6 @@
             height: 'full-100',//设置表格高度，离浏览器窗口上下各100px
             toolbar: '#toolbarDemo', //开启头部工具栏，并为其绑定左侧模板
             cols: [[ //设置表头
-                {type: "checkbox", width: 50},
-                {field: 'nickname', title: '昵称',align:'center'},
-                {field: 'name', title: '姓名',align:'center'},
-                {field: 'tel', title: '电话',align:'center'},
                 {field: 'number', title: '车牌号',align:'center'},
                 {field: 'brand', title: '品牌',align:'center'},
                 {field: 'price', title: '价格',align:'center'},
@@ -66,15 +62,14 @@
                 layer.confirm('确定归还['+data.number +']吗', function(index){
                     $.ajax({
                         data:{
-                            id:data.id,
+                            number:data.number
                         },
                         url:'back',
-                        async:true,
+                        async:false,
                         type:'get',
-                        dateType:'application/json',
+                        dateType:'json',
 
                     });
-                    location.reload();
                     layer.close(index);
                 });
             }

@@ -34,4 +34,9 @@ public class VehicleService implements VehicleDao{
         dao.rentVehcle(id);
     }
 
+    @Override
+    public void backVehcle(String number) {
+        dao.backVehcle(number);
+    }
+
 }

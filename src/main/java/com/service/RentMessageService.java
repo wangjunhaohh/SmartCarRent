@@ -33,4 +33,9 @@ public class RentMessageService implements RentMessageDao {
     public int limitcounts(Integer id) {
         return dao.limitcounts(id);
     }
+
+    @Override
+    public int back(Integer userId) {
+        return dao.back(userId);
+    }
 }
