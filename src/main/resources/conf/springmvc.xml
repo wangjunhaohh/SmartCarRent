@@ -18,7 +18,7 @@
         <mvc:interceptors>
                 <mvc:interceptor>
 <!--                        **可以表示多级目录和目录中的文件-->
-                        <mvc:mapping path="/static/html/**"/>
+                        <mvc:mapping path="/static/html/table2.html"/>
                         <mvc:exclude-mapping path="/static/html/register.html"/>
                         <bean class="com.handler.Myinterceptor"></bean>
                 </mvc:interceptor>

@@ -1,6 +1,7 @@
 package com.service;
 
 import com.bean.Vehicle;
+import com.bean.count.Brand;
 import com.dao.VehicleDao;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,8 @@ public class VehicleService implements VehicleDao{
     }
 
     @Override
-    public Integer rowCar() {
-        return dao.rowCar();
+    public Integer rowCar(String brand,String color) {
+        return dao.rowCar(brand, color);
     }
 
     @Override
@@ -38,5 +39,16 @@ public class VehicleService implements VehicleDao{
     public void backVehcle(String number) {
         dao.backVehcle(number);
     }
+
+    @Override
+    public List<Brand> countBrand() {
+        return dao.countBrand();
+    }
+
+    @Override
+    public int addVehcle(List<Vehicle> list) {
+        return dao.addVehcle(list);
+    }
+
 
 }

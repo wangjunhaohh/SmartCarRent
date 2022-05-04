@@ -5,6 +5,7 @@ import com.bean.Vehicle;
 import com.service.RentMessageService;
 import com.service.VehicleService;
 import com.utils.JsonUtil;
+import com.utils.Randdata;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,7 +33,7 @@ public class VehicleController {
         if(brand ==""){ brand = null; }
         if(color ==""){ color = null; }
         List<Vehicle> vehicles = vehicleService.allVehcle(brand,color);
-        Integer count = vehicleService.rowCar();
+        Integer count = vehicleService.rowCar(brand,color);
         JsonUtil.toJson(vehicles,response,count);
     }
 
@@ -55,6 +57,34 @@ public class VehicleController {
         }else {
             return "0";
         }
+    }
+    @RequestMapping(value = "/countBrand",produces = "text/html; charset=UTF-8")
+    @ResponseBody
+    public String countBrand() throws Exception {
+        String json = JsonUtil.toCustomJson(vehicleService.countBrand());
+        System.out.println(json);
+        return json;
+    }
+    @RequestMapping("/data")
+    public void addData(){
+        List<Vehicle> addlist = new ArrayList<>();
+        for (int i = 0; i < 500; i++) {
+            Vehicle vehicle =new Vehicle();
+            vehicle.setNumber(Randdata.numberData());
+            vehicle.setBrand(Randdata.brandData());
+            vehicle.setColor(Randdata.colorData());
+            vehicle.setPrice(Randdata.priceData());
+            vehicle.setStutus("空闲");
+            addlist.add(vehicle);
+        }
+        System.out.println(addlist);
+        vehicleService.addVehcle(addlist);
+    }
 
+    @RequestMapping(value = "/oneCarMes")
+    @ResponseBody
+    public Vehicle oneCarMes(Integer id){
+        Vehicle vehicle = vehicleService.oneVehcle(id);
+        return  vehicle;
     }
 }

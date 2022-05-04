@@ -20,4 +20,11 @@ public class JsonUtil {
         pw.flush();
         pw.close();
     }
+    public static String toCustomJson(List list) throws Exception{
+        String json="";
+        ObjectMapper om = new ObjectMapper();
+        json = om.writeValueAsString(list);
+//        json = json.replaceAll("\"(\\w+)\"(\\s*:\\s*)", "$1$2");
+        return json;
+    }
 }

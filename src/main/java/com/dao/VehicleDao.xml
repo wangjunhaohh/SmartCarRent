@@ -6,15 +6,43 @@
     <sql id="col">
         id,number,brand,price,color,status
     </sql>
+    <insert id="addVehcle">
+        insert into vehicle (number,brand,price,color,status) values
+        <foreach collection="list" item="i" separator=",">
+            (#{i.number},#{i.brand},#{i.price},#{i.color},#{i.stutus})
+        </foreach>
+    </insert>
+
     <update id="rentVehcle">
         update vehicle set status = "租用中" where id = #{id}
     </update>
     <update id="backVehcle">
         update vehicle set status = "空闲" where number = #{number}
     </update>
+    <update id="updataVehcile">
+        update vehicle set
+        <if test="number!=null">
+            number=#{number}
+        </if>
+        <if test="brand!=null">
+            and brand=#{brand}
+        </if>
+        <if test="color!=null">
+            and color=#{color}
+        </if>
+        <if test="price!=null">
+            and price=#{price}
+        </if>
+    </update>
 
     <select id="rowCar" resultType="java.lang.Integer">
-        select count(id) from vehicle
+        select count(id) from vehicle where status="空闲"
+        <if test="brand!=null">
+            and brand=#{brand}
+        </if>
+        <if test="color!=null">
+            and color=#{color}
+        </if>
     </select>
 
     <select id="allVehcle" resultType="com.bean.Vehicle">
@@ -29,4 +57,12 @@
     <select id="oneVehcle" resultType="com.bean.Vehicle">
         select <include refid="col"/> from vehicle where id = #{id}
     </select>
+    <resultMap id="countBrand" type="brand">
+        <result property="name" column="brand"></result>
+        <result property="value" column="countbrand"></result>
+    </resultMap>
+    <select id="countBrand" resultMap="countBrand">
+        SELECT brand,COUNT(*)as countbrand  FROM `vehicle` GROUP BY brand
+    </select>
+
 </mapper>

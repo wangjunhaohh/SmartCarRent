@@ -1,14 +1,19 @@
 package com.dao;
 
 import com.bean.Vehicle;
+import com.bean.count.Brand;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface VehicleDao {
     List<Vehicle> allVehcle(@Param(value = "brand") String brand, @Param(value = "color") String color);
-    Integer rowCar();
+    Integer rowCar(@Param(value = "brand") String brand, @Param(value = "color") String color);
     Vehicle oneVehcle(Integer id);
     void rentVehcle(Integer id);
     void backVehcle(String number);
+    List<Brand> countBrand();
+    int addVehcle(List<Vehicle> addlist);
+    void updataVehcile();
 }

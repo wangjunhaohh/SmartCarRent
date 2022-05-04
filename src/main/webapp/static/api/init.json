@@ -4,7 +4,7 @@
     "href": "welcome1.jsp"
   },
   "logoInfo": {
-    "title": "智能汽车管理",
+    "title": "智能汽车出租管理系统",
     "image": "../images/logo.png",
     "href": ""
   },
@@ -31,6 +31,12 @@
         {
           "title": "归还",
           "href": "back.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "管理",
+          "href": "table2.html",
           "icon": "fa fa-file-text",
           "target": "_self"
         }

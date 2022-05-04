@@ -101,10 +101,10 @@
                                 <div class="welcome-module">
 <%--                                    <div class="layui-row layui-col-space10 layuimini-qiuck">--%>
 <%--                                        <div class="layui-col-xs3 layuimini-qiuck-module">--%>
-<%--                                            <a href="javascript:;" layuimini-content-href="page/menu.html" data-title="菜单管理" data-icon="fa fa-window-maximize">--%>
+<%--                                            <button onclick="ff()">--%>
 <%--                                                <i class="fa fa-book"></i>--%>
 <%--                                                <cite>菜单管理</cite>--%>
-<%--                                            </a>--%>
+<%--                                            </button>--%>
 <%--                                        </div>--%>
 <%--                                        <div class="layui-col-xs3 layuimini-qiuck-module">--%>
 <%--                                            <a href="javascript:;" layuimini-content-href="page/setting.html" data-title="系统设置" data-icon="fa fa-gears">--%>
@@ -118,12 +118,12 @@
 <%--                                                <cite>表格示例</cite>--%>
 <%--                                            </a>--%>
 <%--                                        </div>--%>
-<%--                                        <div class="layui-col-xs3 layuimini-qiuck-module">--%>
-<%--                                            <a href="javascript:;" layuimini-content-href="page/icon.html" data-title="图标列表" data-icon="fa fa-dot-circle-o">--%>
-<%--                                                <i class="fa fa-dot-circle-o"></i>--%>
-<%--                                                <cite>图标列表</cite>--%>
-<%--                                            </a>--%>
-<%--                                        </div>--%>
+                                        <div class="layui-col-xs3 layuimini-qiuck-module">
+                                            <a href="javascript:;" layuimini-content-href="table.html" data-title="图标列表" data-icon="fa fa-file-text">
+                                                <i class="fa fa-file-text"></i>
+                                                <cite>租用</cite>
+                                            </a>
+                                        </div>
 <%--                                        <div class="layui-col-xs3 layuimini-qiuck-module">--%>
 <%--                                            <a href="javascript:;" layuimini-content-href="page/form.html" data-title="表单示例" data-icon="fa fa-calendar">--%>
 <%--                                                <i class="fa fa-archive"></i>--%>
@@ -160,31 +160,37 @@
                     <div class="layui-card-header"><i class="fa fa-bullhorn icon icon-tip"></i>系统公告</div>
                     <div class="layui-card-body layui-text">
                         <div class="layuimini-notice">
-                            <div class="layuimini-notice-title">选项卡样式</div>
-                            <div class="layuimini-notice-extra">2021-03-21 18:06</div>
+                            <div class="layuimini-notice-title">特斯拉车型上架公告</div>
+                            <div class="layuimini-notice-extra">2022-02-08 12:00</div>
                             <div class="layuimini-notice-content layui-hide">
-                                界面足够简洁清爽。<br>
-                                一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                支持多tab，可以打开多窗口。<br>
-                                支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                移动端的友好支持。<br>
+                                今通过和特斯拉官方的合作商讨，<br>
+                                现决定上架比亚迪的新款C1车型，<br>
+                                平台个用户可以通过智能汽车出  <br>
+                                租管理系统对该车型进行出租。<br>
+<%--                                界面足够简洁清爽。<br>--%>
+<%--                                一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>--%>
+<%--                                支持多tab，可以打开多窗口。<br>--%>
+<%--                                支持无限级菜单和对font-awesome图标库的完美支持。<br>--%>
+<%--                                失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>--%>
+<%--                                url地址hash定位，可以清楚看到当前tab的地址信息。<br>--%>
+<%--                                刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>--%>
+<%--                                移动端的友好支持。<br>--%>
                             </div>
                         </div>
                         <div class="layuimini-notice">
-                            <div class="layuimini-notice-title">404模板</div>
-                            <div class="layuimini-notice-extra">2021-03-21 18:06</div>
+                            <div class="layuimini-notice-title">比亚迪车型上架公告</div>
+                            <div class="layuimini-notice-extra">2021-12-20 08:00</div>
                             <div class="layuimini-notice-content layui-hide">
-                                界面足够简洁清爽。<br>
-                                一个接口几行代码而已直接初始化整个框架，无需复杂操作。<br>
-                                支持多tab，可以打开多窗口。<br>
-                                支持无限级菜单和对font-awesome图标库的完美支持。<br>
-                                失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>
-                                url地址hash定位，可以清楚看到当前tab的地址信息。<br>
-                                刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>
-                                移动端的友好支持。<br>
+                                今通过和比亚迪官方的合作商讨，<br>
+                                现决定上架比亚迪的新款C1车型，<br>
+                                平台个用户可以通过智能汽车出  <br>
+                                租管理系统对该车型进行出租。<br>
+<%--                                支持多tab，可以打开多窗口。<br>--%>
+<%--                                支持无限级菜单和对font-awesome图标库的完美支持。<br>--%>
+<%--                                失效以及报错菜单无法直接打开，并给出弹出层提示完美的线上用户体验。<br>--%>
+<%--                                url地址hash定位，可以清楚看到当前tab的地址信息。<br>--%>
+<%--                                刷新页面会保留当前的窗口，并且会定位当前窗口对应左侧菜单栏。<br>--%>
+<%--                                移动端的友好支持。<br>--%>
                             </div>
                         </div>
 
@@ -201,14 +207,14 @@
                             </colgroup>
                             <tbody>
                             <tr>
-                                <td>框架名称</td>
+                                <td>系统名称</td>
                                 <td>
-                                    超市仓库管理
+                                    智能汽车出租管理系统
                                 </td>
                             </tr>
                             <tr>
                                 <td>当前版本</td>
-                                <td>v1.0.0</td>
+                                <td>v1.0.1</td>
                             </tr>
                             <tr>
                                 <td>主要特色</td>
@@ -222,7 +228,7 @@
                 <div class="layui-card">
                     <div class="layui-card-header"><i class="fa fa-paper-plane-o icon"></i>作者心语</div>
                     <div class="layui-card-body layui-text layadmin-text">
-                        <p>技术交流QQ(853824636)</p>
+                        <p>技术交流</p>
                     </div>
                 </div>
 
@@ -230,6 +236,7 @@
         </div>
     </div>
 </div>
+<script src="../js/jquery.js" charset="utf-8"></script>
 <script>
     layui.use(['layer','echarts'], function () {
         var $ = layui.jquery,
@@ -266,66 +273,56 @@
                 }
             });
         });
-
-        /**
-         * 报表功能
-         */
-        var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
-        var optionRecords = {
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: [ '联盟广告', '视频广告', '直接访问', '搜索引擎']
-            },
-            grid: {
-                left: '24',
-                right: '10%',
-                bottom: '60',
-                containLabel: true
-            },
-            toolbox: {
-                feature: {
-                    saveAsImage: {}
-                }
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: ['周一','周二','周三','周四','周五','周六','周日']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-
-                {
-                    name: '联盟广告',
-                    type: 'line',
-                    data: [220, 182, 191, 234, 290, 330, 310]
+        $.ajax({
+            url:'countBrand',
+            type: "post",
+            success:function (data) {
+                console.log(data);
+                countBrand(data);
+            }
+        });
+        function countBrand(datacount) {
+            console.log(datacount)
+            var echartsRecords = echarts.init(document.getElementById('echarts-records'), 'walden');
+            var optionRecords = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a}<br/>{b}:{c} ({d}%)"
                 },
-                {
-                    name: '视频广告',
-                    type: 'line',
-                    data: [150, 232, 232, 154, 191, 330, 290]
+                legend: {
+                    orient: 'vertical',
+                    left: 'left'
                 },
-                {
-                    name: '直接访问',
-                    type: 'line',
-                    data: [320, 332, 500, 554, 390, 554, 1330]
-                },
-                {
-                    name: '搜索引擎',
-                    type: 'line',
-                    data: [820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
-        };
-        echartsRecords.setOption(optionRecords);
-
-        // echarts 窗口缩放自适应
-        window.onresize = function () {
-            echartsRecords.resize();
+                series: [
+                    {
+                        name: 'brand',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '40',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data:[{"name":"奔驰","value":141},{"name":"宝马","value":136},{"name":"奥迪","value":148},{"name":"丰田","value":153},{"name":"路虎","value":147},{"name":"比亚迪","value":156},{"name":"特斯拉","value":140}]
+                    }
+                ]
+            };
+            echartsRecords.setOption(optionRecords);
         }
 
     });

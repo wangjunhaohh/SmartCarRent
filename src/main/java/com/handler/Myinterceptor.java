@@ -6,6 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 
 public class Myinterceptor implements HandlerInterceptor {
@@ -22,13 +24,19 @@ public class Myinterceptor implements HandlerInterceptor {
     * */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        HttpSession session = request.getSession();
-//        if (session.getAttribute("username")!=null) {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("nickname").equals("8")) {
             return true;
-//        }
+        }
 //
 //        response.sendRedirect(request.getContextPath()+"/login.jsp");
 //        return false;
+        System.out.println("不是管理员");
+        PrintWriter out = response.getWriter();
+        out.print("<script>");
+        out.print("alert('不是管理员,无权访问！')");
+        out.print("</script>");
+        return false;
     }
 
     @Override
