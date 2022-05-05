@@ -50,5 +50,13 @@ public class VehicleService implements VehicleDao{
         return dao.addVehcle(list);
     }
 
+    @Override
+    public void updataVehcile(String number, String brand, String color, Integer id, double price) {
+        dao.updataVehcile(number, brand, color, id, price);
+    }
 
+    @Override
+    public void delCar(Integer id) {
+        dao.delCar(id);
+    }
 }

@@ -15,5 +15,7 @@ public interface VehicleDao {
     void backVehcle(String number);
     List<Brand> countBrand();
     int addVehcle(List<Vehicle> addlist);
-    void updataVehcile();
+    void updataVehcile(@Param(value = "number") String number,@Param(value = "brand") String brand, @Param(value = "color")String color ,@Param(value = "id")Integer id,
+    @Param(value = "price")double price);
+    void delCar(Integer id);
 }

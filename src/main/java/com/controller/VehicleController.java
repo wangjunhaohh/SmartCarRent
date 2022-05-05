@@ -87,4 +87,46 @@ public class VehicleController {
         Vehicle vehicle = vehicleService.oneVehcle(id);
         return  vehicle;
     }
+
+    @RequestMapping(value = "/updataCar")
+    @ResponseBody
+    public int updataCar(Vehicle vehicle){
+        System.out.println(vehicle.getId());
+        try {
+            vehicleService.updataVehcile(vehicle.getNumber(),vehicle.getBrand(),vehicle.getColor(),vehicle.getId(),vehicle.getPrice());
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
+
+    @RequestMapping(value = "/delCar")
+    @ResponseBody
+    public int delCar(Integer id){
+        System.out.println(id);
+        try {
+            vehicleService.delCar(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+        return 1;
+    }
+
+    @RequestMapping(value = "/addCar")
+    @ResponseBody
+    public int addCar(Vehicle vehicle){
+        System.out.println(vehicle);
+        Vehicle vehicle1 = new Vehicle();
+        List<Vehicle> list = new ArrayList<>();
+        vehicle1.setNumber(vehicle.getNumber());
+        vehicle1.setBrand(vehicle.getBrand());
+        vehicle1.setColor(vehicle.getColor());
+        vehicle1.setPrice(vehicle.getPrice());
+        vehicle1.setStutus("空闲");
+        list.add(vehicle1);
+        vehicleService.addVehcle(list);
+        return  1;
+    }
 }

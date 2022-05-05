@@ -22,18 +22,23 @@
     <update id="updataVehcile">
         update vehicle set
         <if test="number!=null">
-            number=#{number}
+            number=#{number},
         </if>
         <if test="brand!=null">
-            and brand=#{brand}
+            brand=#{brand},
         </if>
         <if test="color!=null">
-            and color=#{color}
+            color=#{color},
         </if>
         <if test="price!=null">
-            and price=#{price}
+            price=#{price}
         </if>
+        where id = #{id}
     </update>
+    <delete id="delCar">
+        delete from vehicle where id = #{id}
+    </delete>
+
 
     <select id="rowCar" resultType="java.lang.Integer">
         select count(id) from vehicle where status="空闲"
