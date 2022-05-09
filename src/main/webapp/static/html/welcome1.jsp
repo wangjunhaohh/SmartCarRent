@@ -5,6 +5,11 @@
     .welcome .icon-cray {color:#ffb800 !important;}
     .welcome .icon-blue {color:#1e9fff !important;}
     .welcome .icon-tip {color:#ff5722 !important;}
+
+
+
+
+
     .welcome .layuimini-qiuck-module {text-align:center;margin-top:10px}
     .welcome .layuimini-qiuck-module a i {display:inline-block;width:100%;height:60px;line-height:60px;text-align:center;border-radius:2px;font-size:30px;background-color:#F8F8F8;color:#333;transition:all .3s;-webkit-transition:all .3s;}
     .welcome .layuimini-qiuck-module a cite {position:relative;top:2px;display:block;color:#666;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-size:14px;}
