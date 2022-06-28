@@ -5,11 +5,6 @@
     .welcome .icon-cray {color:#ffb800 !important;}
     .welcome .icon-blue {color:#1e9fff !important;}
     .welcome .icon-tip {color:#ff5722 !important;}
-
-
-
-
-
     .welcome .layuimini-qiuck-module {text-align:center;margin-top:10px}
     .welcome .layuimini-qiuck-module a i {display:inline-block;width:100%;height:60px;line-height:60px;text-align:center;border-radius:2px;font-size:30px;background-color:#F8F8F8;color:#333;transition:all .3s;-webkit-transition:all .3s;}
     .welcome .layuimini-qiuck-module a cite {position:relative;top:2px;display:block;color:#666;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-size:14px;}
@@ -74,7 +69,7 @@
                                                         <h5>登陆人数统计</h5>
                                                     </div>
                                                     <div class="panel-content">
-                                                        <h1 class="no-margins"><%out.print(session.getAttributeNames().hasMoreElements());%></h1>
+                                                        <h1 class="no-margins"><%out.print(application.getAttribute("count"));%></h1>
                                                         <small>当前分类总记录数</small>
                                                     </div>
                                                 </div>
@@ -323,7 +318,7 @@
                         labelLine: {
                             show: false
                         },
-                        data:[{"name":"奔驰","value":141},{"name":"宝马","value":136},{"name":"奥迪","value":148},{"name":"丰田","value":153},{"name":"路虎","value":147},{"name":"比亚迪","value":156},{"name":"特斯拉","value":140}]
+                        data:[{"name":"奔驰","value":141},{"name":"丰田","value":153},{"name":"路虎","value":147},{"name":"比亚迪","value":156},{"name":"特斯拉","value":140},{"name":"宝马","value":135},{"name":"奥迪","value":148}]
                     }
                 ]
             };

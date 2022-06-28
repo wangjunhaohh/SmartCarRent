@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class LoginController {
@@ -20,7 +23,6 @@ public class LoginController {
     private LoginService loginService;
     @Resource
     private RedisTemplate redisTemplate;
-
     @RequestMapping(value = "/login")
     @ResponseBody
     public String login(HttpSession session, Users users){
@@ -68,6 +70,7 @@ public class LoginController {
     @ResponseBody
     public void loginout(HttpSession session){
         session.invalidate();
+        System.out.println(123);
     }
 
 

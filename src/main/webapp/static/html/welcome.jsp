@@ -59,7 +59,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="javascript:;" class="login-out" onclick="loginout()">退出登录</a>
+                            <a href="javascript:;" class="login-out" onclick="exit()">退出登录</a>
                         </dd>
                     </dl>
                 </li>
@@ -97,10 +97,13 @@
 <script src="../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script src="../js/lay-config.js?v=2.0.0" charset="utf-8"></script>
 <script>
-    function loginout() {
+    function exit() {
         $.ajax({
-            type : "post",
-            url : "loginout"
+            type:"post",
+            url:"loginout",
+            success(){
+                console.log("推出成功")
+            }
         })
     }
 </script>
